@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Arquivo";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="fieldset-medio">
+        <legend><b>Fazer Matricula</b></legend>
+
+        @*<div class="editor-label">
+            Aluno
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UsuarioId", null, string.Empty, new { @class = "form-control" })
+        </div>*@
+
+        @*<div class="editor-label">
+            Algoritmos
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Algoritmos", null, string.Empty, new { @class = "form-control" })
+        </div>*@
+
+        <div class="editor-label">
+            Chave
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Chave", null, new { @class = "form-control" })
+        </div>
+
+        <div class="editor-label">
+            Endereço
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Endereco", null, new { @class = "form-control" })
+        </div>
+
+        <div class="editor-label">
+            Telefone
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Telefone", null, new { @class = "form-control" })
+        </div>
+
+        <div class="editor-label">
+            Descrição
+        </div>
+        <div class="editor-field">
+            @Html.TextArea("Descricao", null, 3, 50, new { @class = "form-control" })
+        </div>
+
+        <div class="editor-label">
+            Observação
+        </div>
+        <div class="editor-field">
+            @Html.TextArea("Observacao", null, 3, 50, new { @class = "form-control" })
+        </div>
+
+        @*<div class="editor-label">
+            Situação da Matrícula
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("SituacaoMatricula", null, string.Empty, new { @class = "form-control" })
+        </div>*@
+        <br />
+        <p>
+            <input type="submit" value="Adicionar" class="btn btn-primary" />&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+        </p>
+    </fieldset>
+}
+<br />
+<br />

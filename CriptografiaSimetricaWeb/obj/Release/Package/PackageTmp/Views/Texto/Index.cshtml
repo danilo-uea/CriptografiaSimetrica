@@ -1,0 +1,55 @@
+﻿@model CriptografiaSimetricaWeb.Models.Parametros
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Criptografia simétrica de textos</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Algoritmo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Algoritmo", null, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Tipo", null, string.Empty, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Chave, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Chave, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Chave, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TextoEntrada, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TextoEntrada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TextoEntrada, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Executar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+Exemplos de Chaves (Hexadecimal): <br />
+<b>DES:</b> 13 34 57 79 9B BC DF F1 <br />
+<b>Triplo DES:</b> 13 34 57 79 9B BC DF F1 A5 F1 59 7C 0B 33 BF D2 FF E5 4A 39 1C 21 5D 2F <br />
+<b>AES:</b> 13 34 57 79 9B BC DF F1 13 34 57 79 9B BC DF F1 <br />
+<b>Blowfish:</b> 13 34 57 79 9B BC DF F1 (De 8 até 112 caracteres em hexadecimal) <br />
+<b>Twofish:</b> 13 34 57 79 9B BC DF F1 13 34 57 79 9B BC DF F1 (de 128 bits)
