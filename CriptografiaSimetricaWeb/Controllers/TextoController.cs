@@ -30,83 +30,149 @@ namespace CriptografiaSimetricaWeb.Controllers
             ViewBag.Tipo = new SelectList(Listas.ListaTipo(), "Valor", "Nome", parametros.Tipo);
             ViewBag.Algoritmo = new SelectList(Listas.ListaAlgoritmos(), "Valor", "Nome", parametros.Algoritmo);
 
-            if (!string.IsNullOrWhiteSpace(parametros.Chave))
-                chave = parametros.Chave.Replace(" ", "").Replace(":", "");
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(parametros.Chave))
+                    chave = parametros.Chave.Replace(" ", "").Replace(":", "");
 
-            parametros.TextoSaida = "";
-            ViewBag.TextoSaida = "";
+                parametros.TextoSaida = "";
+                ViewBag.TextoSaida = "";
 
 
-            if (parametros.Algoritmo == null)
-            {
-                ViewBag.Aviso = "Selecione o algoritmo de criptografia";
-                ViewBag.Focus = "Algoritmo";
-            }
-            else if (parametros.Tipo == null)
-            {
-                ViewBag.Aviso = "Selecione o tipo de criptografia";
-                ViewBag.Focus = "Tipo";
-            }
-            else if (string.IsNullOrWhiteSpace(chave))
-            {
-                ViewBag.Aviso = "Digite a chave";
-                ViewBag.Focus = "Chave";
-            }
-            else if (!IsHex(chave))
-            {
-                ViewBag.Aviso = "Chave invalida! A chave deve estar em hexadecimal";
-                ViewBag.Focus = "Chave";
-            }
-            else if (string.IsNullOrWhiteSpace(parametros.TextoEntrada))
-            {
-                ViewBag.Aviso = "Digite algum texto";
-                ViewBag.Focus = "TextoEntrada";
-            }
-            else
-            {
-                if (parametros.Algoritmo == 1) //Algoritmo DES
+                if (parametros.Algoritmo == null)
                 {
-                    if (chave.Length != 16)
-                    {
-                        ViewBag.Aviso = "A chave deve ter 16 valores hexadecimais";
-                        ViewBag.Focus = "Chave";
-                    }
-                    else
-                    {
-                        Des des = new Des();
-
-                        if (parametros.Tipo == 1)
-                            parametros.TextoSaida = des.EncriptacaoTexto(parametros.TextoEntrada, chave);
-                        else if (parametros.Tipo == 2)
-                            parametros.TextoSaida = des.DecriptacaoTexto(parametros.TextoEntrada, chave);
-
-                        Adicionar(parametros.TextoSaida);
-
-                        return RedirectToAction("Resultado");
-                    }
+                    ViewBag.Aviso = "Selecione o algoritmo de criptografia";
+                    ViewBag.Focus = "Algoritmo";
                 }
-                else if (parametros.Algoritmo == 2) //Algoritmo 3DES
+                else if (parametros.Tipo == null)
                 {
-                    if (chave.Length != 48)
+                    ViewBag.Aviso = "Selecione o tipo de criptografia";
+                    ViewBag.Focus = "Tipo";
+                }
+                else if (string.IsNullOrWhiteSpace(chave))
+                {
+                    ViewBag.Aviso = "Digite a chave";
+                    ViewBag.Focus = "Chave";
+                }
+                else if (!IsHex(chave))
+                {
+                    ViewBag.Aviso = "Chave invalida! A chave deve estar em hexadecimal";
+                    ViewBag.Focus = "Chave";
+                }
+                else if (string.IsNullOrWhiteSpace(parametros.TextoEntrada))
+                {
+                    ViewBag.Aviso = "Digite algum texto";
+                    ViewBag.Focus = "TextoEntrada";
+                }
+                else
+                {
+                    if (parametros.Algoritmo == 1) //Algoritmo DES
                     {
-                        ViewBag.Aviso = "Digite 48 hexadecimais (Três chaves tipo DES).";
-                        ViewBag.Focus = "Chave";
-                    }
-                    else
-                    {
-                        TriploDes triploDes = new TriploDes(chave);
-
-                        if (!triploDes.Diferentes) //Se as chaves não forem diferentes entre si
+                        if (chave.Length != 16)
                         {
-                            ViewBag.Aviso = "As 3 chaves devem ser diferentes entre si";
+                            ViewBag.Aviso = "A chave deve ter 16 valores hexadecimais";
                             ViewBag.Focus = "Chave";
                         }
                         else
                         {
+                            Des des = new Des();
+
                             if (parametros.Tipo == 1)
-                                parametros.TextoSaida = triploDes.EncriptacaoTexto(parametros.TextoEntrada);
+                                parametros.TextoSaida = des.EncriptacaoTexto(parametros.TextoEntrada, chave);
                             else if (parametros.Tipo == 2)
-                                parametros.TextoSaida = triploDes.DecriptacaoTexto(parametros.TextoEntrada);
+                                parametros.TextoSaida = des.DecriptacaoTexto(parametros.TextoEntrada, chave);
+
+                            Adicionar(parametros.TextoSaida);
+
+                            return RedirectToAction("Resultado");
+                        }
+                    }
+                    else if (parametros.Algoritmo == 2) //Algoritmo 3DES
+                    {
+                        if (chave.Length != 48)
+                        {
+                            ViewBag.Aviso = "Digite 48 hexadecimais (Três chaves tipo DES).";
+                            ViewBag.Focus = "Chave";
+                        }
+                        else
+                        {
+                            TriploDes triploDes = new TriploDes(chave);
+
+                            if (!triploDes.Diferentes) //Se as chaves não forem diferentes entre si
+                            {
+                                ViewBag.Aviso = "As 3 chaves devem ser diferentes entre si";
+                                ViewBag.Focus = "Chave";
+                            }
+                            else
+                            {
+                                if (parametros.Tipo == 1)
+                                    parametros.TextoSaida = triploDes.EncriptacaoTexto(parametros.TextoEntrada);
+                                else if (parametros.Tipo == 2)
+                                    parametros.TextoSaida = triploDes.DecriptacaoTexto(parametros.TextoEntrada);
+
+                                Adicionar(parametros.TextoSaida);
+
+                                return RedirectToAction("Resultado");
+                            }
+                        }
+                    }
+                    else if (parametros.Algoritmo == 3) //Algoritmo AES
+                    {
+                        if (chave.Length != 32)
+                        {
+                            ViewBag.Aviso = "Digite 32 hexadecimais na chave do AES";
+                            ViewBag.Focus = "Chave";
+                        }
+                        else
+                        {
+                            Aes aes = new Aes();
+
+                            if (parametros.Tipo == 1)
+                                parametros.TextoSaida = aes.EncriptacaoTexto(parametros.TextoEntrada, chave);
+                            else if (parametros.Tipo == 2)
+                                parametros.TextoSaida = aes.DecriptacaoTexto(parametros.TextoEntrada, chave);
+
+                            Adicionar(parametros.TextoSaida);
+
+                            return RedirectToAction("Resultado");
+                        }
+                    }
+                    else if (parametros.Algoritmo == 4) //Algoritmo Blowfish
+                    {
+                        if (chave.Length < 8 || chave.Length > 112)
+                        {
+                            ViewBag.Aviso = "Chave Blowfish, deve ser de 8 - 112 caracteres em hexadecimal";
+                            ViewBag.Focus = "Chave";
+                        }
+                        else
+                        {
+                            Blowfish blowfish = new Blowfish();
+
+                            if (parametros.Tipo == 1)
+                                parametros.TextoSaida = blowfish.EncriptacaoTexto(parametros.TextoEntrada, chave);
+                            else if (parametros.Tipo == 2)
+                                parametros.TextoSaida = blowfish.DecriptacaoTexto(parametros.TextoEntrada, chave);
+
+                            Adicionar(parametros.TextoSaida);
+
+                            return RedirectToAction("Resultado");
+                        }
+                    }
+                    else if (parametros.Algoritmo == 5) //Algoritmo Twofish
+                    {
+                        if (chave.Length != 32)
+                        {
+                            ViewBag.Aviso = "A chave Twofish deve ter 32 caracteres em hexadecimal";
+                            ViewBag.Focus = "Chave";
+                        }
+                        else
+                        {
+                            Twofish twofish = new Twofish();
+
+                            if (parametros.Tipo == 1)
+                                parametros.TextoSaida = twofish.EncriptacaoTexto(parametros.TextoEntrada, chave);
+                            else if (parametros.Tipo == 2)
+                                parametros.TextoSaida = twofish.DecriptacaoTexto(parametros.TextoEntrada, chave);
 
                             Adicionar(parametros.TextoSaida);
 
@@ -114,69 +180,10 @@ namespace CriptografiaSimetricaWeb.Controllers
                         }
                     }
                 }
-                else if (parametros.Algoritmo == 3) //Algoritmo AES
-                {
-                    if (chave.Length != 32)
-                    {
-                        ViewBag.Aviso = "Digite 32 hexadecimais na chave do AES";
-                        ViewBag.Focus = "Chave";
-                    }
-                    else
-                    {
-                        Aes aes = new Aes();
-
-                        if (parametros.Tipo == 1)
-                            parametros.TextoSaida = aes.EncriptacaoTexto(parametros.TextoEntrada, chave);
-                        else if (parametros.Tipo == 2)
-                            parametros.TextoSaida = aes.DecriptacaoTexto(parametros.TextoEntrada, chave);
-
-                        Adicionar(parametros.TextoSaida);
-
-                        return RedirectToAction("Resultado");
-                    }
-                }
-                else if (parametros.Algoritmo == 4) //Algoritmo Blowfish
-                {
-                    if (chave.Length < 8 || chave.Length > 112)
-                    {
-                        ViewBag.Aviso = "Chave Blowfish, deve ser de 8 - 112 caracteres em hexadecimal";
-                        ViewBag.Focus = "Chave";
-                    }
-                    else
-                    {
-                        Blowfish blowfish = new Blowfish();
-
-                        if (parametros.Tipo == 1)
-                            parametros.TextoSaida = blowfish.EncriptacaoTexto(parametros.TextoEntrada, chave);
-                        else if (parametros.Tipo == 2)
-                            parametros.TextoSaida = blowfish.DecriptacaoTexto(parametros.TextoEntrada, chave);
-
-                        Adicionar(parametros.TextoSaida);
-
-                        return RedirectToAction("Resultado");
-                    }
-                }
-                else if (parametros.Algoritmo == 5) //Algoritmo Twofish
-                {
-                    if (chave.Length != 32)
-                    {
-                        ViewBag.Aviso = "A chave Twofish deve ter 32 caracteres em hexadecimal";
-                        ViewBag.Focus = "Chave";
-                    }
-                    else
-                    {
-                        Twofish twofish = new Twofish();
-
-                        if (parametros.Tipo == 1)
-                            parametros.TextoSaida = twofish.EncriptacaoTexto(parametros.TextoEntrada, chave);
-                        else if (parametros.Tipo == 2)
-                            parametros.TextoSaida = twofish.DecriptacaoTexto(parametros.TextoEntrada, chave);
-
-                        Adicionar(parametros.TextoSaida);
-
-                        return RedirectToAction("Resultado");
-                    }
-                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Aviso = ex.ToString();
             }
 
             return View(parametros);

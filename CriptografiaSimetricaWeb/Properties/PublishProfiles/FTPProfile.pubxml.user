@@ -17,16 +17,16 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/25/2021 09:50:48</publishTime>
+      <publishTime>07/25/2021 19:11:45</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/25/2021 09:50:48</publishTime>
+      <publishTime>07/25/2021 19:11:45</publishTime>
     </File>
     <File Include="bin/CriptografiaSimetricaWeb.dll">
-      <publishTime>07/25/2021 09:50:35</publishTime>
+      <publishTime>07/25/2021 19:11:36</publishTime>
     </File>
     <File Include="bin/CriptografiaSimetricaWeb.pdb">
-      <publishTime>07/25/2021 09:50:35</publishTime>
+      <publishTime>07/25/2021 19:11:36</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.SqlClient.resources.dll">
       <publishTime>05/15/2020 23:07:28</publishTime>
@@ -431,7 +431,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/25/2021 09:44:25</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/25/2021 09:50:37</publishTime>
+      <publishTime>07/25/2021 19:11:37</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/24/2021 10:55:55</publishTime>
@@ -473,7 +473,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/24/2021 10:55:58</publishTime>
     </File>
     <File Include="Views/Arquivo/Index.cshtml">
-      <publishTime>07/24/2021 13:05:23</publishTime>
+      <publishTime>07/25/2021 18:44:02</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>07/24/2021 10:55:50</publishTime>
@@ -488,10 +488,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/24/2021 10:55:50</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/24/2021 18:14:53</publishTime>
+      <publishTime>07/25/2021 15:35:23</publishTime>
     </File>
     <File Include="Views/Texto/Index.cshtml">
-      <publishTime>07/25/2021 09:09:13</publishTime>
+      <publishTime>07/25/2021 15:43:24</publishTime>
     </File>
     <File Include="Views/Texto/Resultado.cshtml">
       <publishTime>07/24/2021 17:49:24</publishTime>
@@ -503,7 +503,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/24/2021 10:55:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/25/2021 09:50:36</publishTime>
+      <publishTime>07/25/2021 19:11:37</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -1,76 +1,74 @@
-﻿@{
+﻿@model CriptografiaSimetricaWeb.Models.Parametros
+
+@{
     ViewBag.Title = "Arquivo";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Arquivo", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-    <fieldset class="fieldset-medio">
-        <legend><b>Fazer Matricula</b></legend>
+<div class="form-horizontal">
+    <h4>Criptografia simétrica de arquivos</h4>
+    <hr />
+    <div class="alert alert-success" role="alert">
+        O arquivo será salvo na pasta de Downloads após o término da execução (com sucesso).
+    </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Algoritmo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Algoritmo", null, string.Empty, new { @class = "form-control" })
+        </div>
+    </div>
 
-        @*<div class="editor-label">
-            Aluno
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Tipo", null, string.Empty, new { @class = "form-control" })
         </div>
-        <div class="editor-field">
-            @Html.DropDownList("UsuarioId", null, string.Empty, new { @class = "form-control" })
-        </div>*@
+    </div>
 
-        @*<div class="editor-label">
-            Algoritmos
+    <div class="form-group">
+        @Html.LabelFor(model => model.Chave, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Chave, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Chave, "", new { @class = "text-danger" })
         </div>
-        <div class="editor-field">
-            @Html.DropDownList("Algoritmos", null, string.Empty, new { @class = "form-control" })
-        </div>*@
+    </div>
 
-        <div class="editor-label">
-            Chave
+    <div class="form-group">
+        <label class="control-label col-md-2">Escolha o arquivo</label>
+        <div class="col-md-10">
+            <input type="file" class="form-control-file" id="ArquivoPc" name="ArquivoPc">
         </div>
-        <div class="editor-field">
-            @Html.TextBox("Chave", null, new { @class = "form-control" })
-        </div>
+    </div>
 
-        <div class="editor-label">
-            Endereço
+    <div class="form-group">
+        @Html.LabelFor(model => model.NomeArquivo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NomeArquivo, new { htmlAttributes = new { @class = "form-control", @placeholder = "nome_arquivo.extensão" } })
+            @Html.ValidationMessageFor(model => model.NomeArquivo, "", new { @class = "text-danger" })
         </div>
-        <div class="editor-field">
-            @Html.TextBox("Endereco", null, new { @class = "form-control" })
-        </div>
+    </div>
 
-        <div class="editor-label">
-            Telefone
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Executar" class="btn btn-default" />
         </div>
-        <div class="editor-field">
-            @Html.TextBox("Telefone", null, new { @class = "form-control" })
-        </div>
-
-        <div class="editor-label">
-            Descrição
-        </div>
-        <div class="editor-field">
-            @Html.TextArea("Descricao", null, 3, 50, new { @class = "form-control" })
-        </div>
-
-        <div class="editor-label">
-            Observação
-        </div>
-        <div class="editor-field">
-            @Html.TextArea("Observacao", null, 3, 50, new { @class = "form-control" })
-        </div>
-
-        @*<div class="editor-label">
-            Situação da Matrícula
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("SituacaoMatricula", null, string.Empty, new { @class = "form-control" })
-        </div>*@
-        <br />
-        <p>
-            <input type="submit" value="Adicionar" class="btn btn-primary" />&nbsp;&nbsp;&nbsp;
-            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
-        </p>
-    </fieldset>
+    </div>
+</div>
 }
+
 <br />
+Exemplos de Chaves (Hexadecimal):
 <br />
+<b>DES:</b> 13 34 57 79 9B BC DF F1
+<br />
+<b>Triplo DES:</b> 13 34 57 79 9B BC DF F1 A5 F1 59 7C 0B 33 BF D2 FF E5 4A 39 1C 21 5D 2F
+<br />
+<b>AES:</b> 13 34 57 79 9B BC DF F1 13 34 57 79 9B BC DF F1
+<br />
+<b>Blowfish:</b> 13 34 57 79 9B BC DF F1 (De 8 até 112 caracteres em hexadecimal)
+<br />
+<b>Twofish:</b> 13 34 57 79 9B BC DF F1 13 34 57 79 9B BC DF F1 (de 128 bits)

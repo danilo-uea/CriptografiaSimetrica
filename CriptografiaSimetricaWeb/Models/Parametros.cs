@@ -17,5 +17,9 @@ namespace CriptografiaSimetricaWeb.Models
         [DataType(DataType.MultilineText)]
         [Display(Name = "Texto Saída")]
         public string TextoSaida { get; set; }
+        [Display(Name = "Salvar como")]
+        public string NomeArquivo { get; set; }
+
+        public HttpPostedFileBase ArquivoPc { get; set; }
     }
 }
