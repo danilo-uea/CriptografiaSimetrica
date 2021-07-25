@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using CriptografiaSimetricaWeb.Models;
 using CriptografiaSimetricaWeb.Algoritmos;
+using System.Data.Entity;
 
 namespace CriptografiaSimetricaWeb.Controllers
 {
     public class TextoController : Controller
     {
         private string chave { get; set; }
+        DbCriptografiaEntities db = new DbCriptografiaEntities();
 
         // GET: Texto
         public ActionResult Index()
@@ -18,29 +20,15 @@ namespace CriptografiaSimetricaWeb.Controllers
             ViewBag.Tipo = new SelectList(Listas.ListaTipo(), "Valor", "Nome");
             ViewBag.Algoritmo = new SelectList(Listas.ListaAlgoritmos(), "Valor", "Nome");
 
-            //Parametros param = new Parametros();
-            //param.TextoSaida = "";
-
             return View();
         }
 
-        public ActionResult Resultado(string Resultado)
-        {
-            //ViewBag.Tipo = new SelectList(Listas.ListaTipo(), "Valor", "Nome", parametros.Tipo);
-            //ViewBag.Algoritmo = new SelectList(Listas.ListaAlgoritmos(), "Valor", "Nome", parametros.Algoritmo);
-
-            Parametros parametros = new Parametros();
-            parametros.TextoSaida = Resultado;
-
-            return View(parametros);
-        }
-
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Index(Parametros parametros)
         {
             ViewBag.Tipo = new SelectList(Listas.ListaTipo(), "Valor", "Nome", parametros.Tipo);
             ViewBag.Algoritmo = new SelectList(Listas.ListaAlgoritmos(), "Valor", "Nome", parametros.Algoritmo);
-
 
             if (!string.IsNullOrWhiteSpace(parametros.Chave))
                 chave = parametros.Chave.Replace(" ", "").Replace(":", "");
@@ -92,7 +80,9 @@ namespace CriptografiaSimetricaWeb.Controllers
                         else if (parametros.Tipo == 2)
                             parametros.TextoSaida = des.DecriptacaoTexto(parametros.TextoEntrada, chave);
 
-                        return RedirectToAction("Resultado", new { Resultado = parametros.TextoSaida });
+                        Adicionar(parametros.TextoSaida);
+
+                        return RedirectToAction("Resultado");
                     }
                 }
                 else if (parametros.Algoritmo == 2) //Algoritmo 3DES
@@ -118,7 +108,9 @@ namespace CriptografiaSimetricaWeb.Controllers
                             else if (parametros.Tipo == 2)
                                 parametros.TextoSaida = triploDes.DecriptacaoTexto(parametros.TextoEntrada);
 
-                            return RedirectToAction("Resultado", new { Resultado = parametros.TextoSaida });
+                            Adicionar(parametros.TextoSaida);
+
+                            return RedirectToAction("Resultado");
                         }
                     }
                 }
@@ -138,7 +130,9 @@ namespace CriptografiaSimetricaWeb.Controllers
                         else if (parametros.Tipo == 2)
                             parametros.TextoSaida = aes.DecriptacaoTexto(parametros.TextoEntrada, chave);
 
-                        return RedirectToAction("Resultado", new { Resultado = parametros.TextoSaida });
+                        Adicionar(parametros.TextoSaida);
+
+                        return RedirectToAction("Resultado");
                     }
                 }
                 else if (parametros.Algoritmo == 4) //Algoritmo Blowfish
@@ -157,7 +151,9 @@ namespace CriptografiaSimetricaWeb.Controllers
                         else if (parametros.Tipo == 2)
                             parametros.TextoSaida = blowfish.DecriptacaoTexto(parametros.TextoEntrada, chave);
 
-                        return RedirectToAction("Resultado", new { Resultado = parametros.TextoSaida });
+                        Adicionar(parametros.TextoSaida);
+
+                        return RedirectToAction("Resultado");
                     }
                 }
                 else if (parametros.Algoritmo == 5) //Algoritmo Twofish
@@ -176,12 +172,41 @@ namespace CriptografiaSimetricaWeb.Controllers
                         else if (parametros.Tipo == 2)
                             parametros.TextoSaida = twofish.DecriptacaoTexto(parametros.TextoEntrada, chave);
 
-                        return RedirectToAction("Resultado", new { Resultado = parametros.TextoSaida });
+                        Adicionar(parametros.TextoSaida);
+
+                        return RedirectToAction("Resultado");
                     }
                 }
             }
 
             return View(parametros);
+        }
+
+        public ActionResult Resultado()
+        {
+            Parametros parametros = new Parametros();
+            parametros.TextoSaida = db.Temporario.First().Texto;
+
+            return View(parametros);
+        }
+
+        private void Adicionar(string textoSaida)
+        {
+            if (db.Temporario.ToList().Count > 0)
+            {
+                var temporario = db.Temporario.First();
+
+                temporario.Texto = textoSaida;
+                db.Entry(temporario).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                var temporario = new Temporario() { Texto = textoSaida };
+
+                db.Temporario.Add(temporario);
+                db.SaveChanges();
+            }
         }
 
         private bool IsHex(string chave) //Verifica se a string só contém valores em hexadecimal

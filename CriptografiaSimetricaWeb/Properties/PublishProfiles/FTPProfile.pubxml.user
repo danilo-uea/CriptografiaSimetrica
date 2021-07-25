@@ -16,20 +16,128 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="bin/Antlr3.Runtime.pdb">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>07/25/2021 09:50:48</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>07/25/2021 09:50:48</publishTime>
+    </File>
     <File Include="bin/CriptografiaSimetricaWeb.dll">
-      <publishTime>07/24/2021 19:28:58</publishTime>
+      <publishTime>07/25/2021 09:50:35</publishTime>
     </File>
     <File Include="bin/CriptografiaSimetricaWeb.pdb">
-      <publishTime>07/24/2021 19:28:58</publishTime>
+      <publishTime>07/25/2021 09:50:35</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:28</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/23/2017 13:15:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/23/2017 13:15:20</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:24</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:20</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:24</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:30</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>04/14/2020 22:39:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.HashCode.dll">
+      <publishTime>11/16/2020 21:15:16</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.dll">
+      <publishTime>05/15/2020 23:07:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.pdb">
+      <publishTime>05/15/2020 23:01:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>06/16/2021 07:29:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.EntityFrameworkCore.dll">
+      <publishTime>06/16/2021 07:29:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>06/16/2021 07:29:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <publishTime>06/16/2021 07:29:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Caching.Abstractions.dll">
+      <publishTime>06/16/2021 06:23:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Caching.Memory.dll">
+      <publishTime>06/16/2021 06:23:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Configuration.Abstractions.dll">
+      <publishTime>06/16/2021 06:23:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Configuration.Binder.dll">
+      <publishTime>06/16/2021 06:24:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Configuration.dll">
+      <publishTime>06/16/2021 06:23:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <publishTime>06/16/2021 06:23:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.DependencyInjection.dll">
+      <publishTime>06/16/2021 06:23:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Logging.Abstractions.dll">
+      <publishTime>06/16/2021 06:24:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Logging.dll">
+      <publishTime>06/16/2021 06:24:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Options.dll">
+      <publishTime>06/16/2021 06:23:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Extensions.Primitives.dll">
+      <publishTime>06/16/2021 06:24:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Identity.Client.dll">
+      <publishTime>04/29/2019 22:04:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>06/24/2019 19:50:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Logging.dll">
+      <publishTime>06/24/2019 19:52:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>06/24/2019 19:54:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>06/24/2019 19:59:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>06/24/2019 19:55:56</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/22/2019 01:06:16</publishTime>
+    </File>
+    <File Include="bin/pt-BR/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:26</publishTime>
     </File>
     <File Include="bin/pt-br/System.Web.Helpers.resources.dll">
       <publishTime>11/28/2018 13:04:44</publishTime>
@@ -199,6 +307,36 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>08/08/2018 12:18:16</publishTime>
     </File>
+    <File Include="bin/ru/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:24</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Collections.Immutable.dll">
+      <publishTime>04/14/2020 22:39:26</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.Annotations.dll">
+      <publishTime>05/15/2018 13:29:36</publishTime>
+    </File>
+    <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>04/14/2020 22:49:20</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>06/24/2019 19:49:42</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>05/15/2018 13:29:44</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>02/21/2020 03:58:04</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
@@ -222,6 +360,24 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="bin/x64/SNI.dll">
+      <publishTime>10/18/2019 17:32:38</publishTime>
+    </File>
+    <File Include="bin/x64/SNI.pdb">
+      <publishTime>10/18/2019 17:27:04</publishTime>
+    </File>
+    <File Include="bin/x86/SNI.dll">
+      <publishTime>10/18/2019 17:32:36</publishTime>
+    </File>
+    <File Include="bin/x86/SNI.pdb">
+      <publishTime>10/18/2019 17:27:04</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:26</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/15/2020 23:07:24</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>07/24/2021 10:55:55</publishTime>
@@ -270,6 +426,12 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     </File>
     <File Include="Global.asax">
       <publishTime>07/24/2021 10:55:51</publishTime>
+    </File>
+    <File Include="Models/Model1.edmx.diagram">
+      <publishTime>07/25/2021 09:44:25</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>07/25/2021 09:50:37</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/24/2021 10:55:55</publishTime>
@@ -329,7 +491,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/24/2021 18:14:53</publishTime>
     </File>
     <File Include="Views/Texto/Index.cshtml">
-      <publishTime>07/24/2021 18:13:53</publishTime>
+      <publishTime>07/25/2021 09:09:13</publishTime>
     </File>
     <File Include="Views/Texto/Resultado.cshtml">
       <publishTime>07/24/2021 17:49:24</publishTime>
@@ -341,7 +503,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/24/2021 10:55:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/24/2021 19:25:14</publishTime>
+      <publishTime>07/25/2021 09:50:36</publishTime>
     </File>
   </ItemGroup>
 </Project>
